@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moving Text</title>
+
+<style>
+body{
+    margin:0;
+    background:black;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    height:100vh;
+}
+
+.marquee{
+    white-space:nowrap;
+    font-size:30px;
+    color:white;
+    position:absolute;
+    animation: move 8s linear infinite;
+}
+
+@keyframes move{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="marquee">
+    Ericka bantut
+</div>
+
+</body>
+</html>
