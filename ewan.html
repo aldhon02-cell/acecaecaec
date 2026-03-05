@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jannah</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.envelope {
+  width: 360px;
+  height: 240px;
+  background: #ff4d6d;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.flap {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 180px solid transparent;
+  border-right: 180px solid transparent;
+  border-bottom: 120px solid #ff1f4b;
+  top: 0;
+  transition: 0.6s;
+  transform-origin: top;
+  z-index: 2;
+}
+
+.letter {
+  position: absolute;
+  width: 320px;
+  height: 240px;
+  background: white;
+  left: 20px;
+  bottom: -280px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  transition: 0.8s;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: red;
+  color: white;
+  border: none;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  z-index: 3;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+  bottom: 10px;
+}
+
+.sticker {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="envelope" id="envelope">
+  <div class="flap"></div>
+
+  <button id="pressButton" onclick="openLetter()">PRESS ME</button>
+
+  <div class="letter">
+    <h3>💌</h3>
+    <p>
+      HIII JANNAH<br><br>
+      I LOVE YOU SO MUCH<br><br>
+      I SPENT TIME LEARNING HOW TO CODE FOR YOU<br><br>
+      SINCE I COULDN'T SLEEP HEHE
+    </p>
+
+    <img src="content://media/external/downloads/1000149517" class="sticker">
+  </div>
+</div>
+
+<script>
+function openLetter() {
+  document.getElementById("envelope").classList.add("open");
+
+  // Hide the button after pressing
+  document.getElementById("pressButton").style.display = "none";
+}
+</script>
+
+</body>
+</html>
