@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>My first code project uwu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snake Game</title>
 
 <style>
 body{
@@ -10,20 +10,15 @@ body{
     background:#111;
     color:white;
     font-family:Arial;
-    margin:0;
-    overflow:hidden;
 }
 
 canvas{
     background:black;
     margin-top:10px;
-    display:none;
-    touch-action:none;
 }
 
 .controls{
     margin-top:20px;
-    display:none;
 }
 
 button{
@@ -32,27 +27,12 @@ button{
     font-size:24px;
     margin:5px;
 }
-
-#startScreen{
-    margin-top:120px;
-}
-
-#startBtn{
-    width:150px;
-    height:60px;
-    font-size:20px;
-}
 </style>
 </head>
 
 <body>
 
-<div id="startScreen">
-<h1>My first code project uwu</h1>
-<p>Snake Game</p>
-<button id="startBtn" onclick="startGame()">Start Game</button>
-</div>
-
+<h2>Snake Game</h2>
 <canvas id="game" width="300" height="300"></canvas>
 
 <div class="controls">
@@ -70,7 +50,6 @@ const ctx = canvas.getContext("2d");
 
 let grid = 15;
 let count = 0;
-let started = false;
 
 let snake = {
     x: 150,
@@ -85,13 +64,6 @@ let apple = {
     x: 225,
     y: 225
 };
-
-function startGame(){
-    document.getElementById("startScreen").style.display="none";
-    document.getElementById("game").style.display="block";
-    document.querySelector(".controls").style.display="block";
-    started = true;
-}
 
 function changeDir(dir){
     if(dir === "left" && snake.dx === 0){
@@ -114,8 +86,6 @@ function changeDir(dir){
 
 function gameLoop(){
     requestAnimationFrame(gameLoop);
-
-    if(!started) return;
 
     if(++count < 6){
         return;
